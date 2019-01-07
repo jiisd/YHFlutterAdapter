@@ -1,0 +1,25 @@
+# source 'git@code.yaheng.cn:ios/publibrary/YHPodsRepo.git'
+
+# Flutter
+def flutter
+    pod 'YHFlutterSDK',        :podspec => 'https://github.com/jiisd/YHFlutterAdapter/raw/master/YHFlutterSDK/YHFlutterSDK.podspec'
+    pod 'YHFlutterAdapter',    :podspec => 'https://github.com/jiisd/YHFlutterAdapter/raw/master/YHFlutterAdapter/YHFlutterAdapter.podspec'
+    pod 'YHFlutterPlugin',     :podspec => 'https://github.com/jiisd/YHFlutterAdapter/raw/master/YHFlutterPlugin/YHFlutterPlugin.podspec'
+    
+#    pod 'YHFlutterSDK',         :podspec => '../YHFlutterSDK/YHFlutterSDK.podspec'
+#    pod 'YHFlutterAdapter',     :podspec => '../YHFlutterAdapter/YHFlutterAdapter.podspec'
+#    pod 'YHFlutterPlugin',      :podspec => '../YHFlutterPlugin/YHFlutterPlugin.podspec'
+
+#    pod 'YHFlutterSDK',        :path => '../YHFlutterSDK'
+#    pod 'YHFlutterAdapter',    :path => '../YHFlutterAdapter'
+#    pod 'YHFlutterPlugin',     :path => '../YHFlutterPlugin'
+
+#    pod 'YHFlutterSDK',        '0.0.1'
+#    pod 'YHFlutterAdapter',    '0.0.1'
+#    pod 'YHFlutterPlugin',     '0.0.1'
+end
+
+target 'YHFlutterDemo' do
+    platform :ios, '9.0'
+    flutter
+end

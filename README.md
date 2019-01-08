@@ -12,15 +12,12 @@
 ![](https://raw.githubusercontent.com/jiisd/YHFlutterAdapter/master/diagram.png)
 
  
-主要目录介绍：
+| 模块 | 描述 |
+| --- | --- |
+| YHFlutterAdapter | 负责 Flutter 功能与原生端代码的隔离解耦，并提供一定的插件注册功能，该模块内的功能应逐渐下沉为通用功能，可供多个业务线直接复用。 |
+| YHFlutterSDK | 存放 Flutter 项目编译后生成的产物，各个业务线可针对于自己的 Flutter 项目需求来生成对应的独立产物，与 YHFlutterAdapter 和 YHFlutterPlugin 组装使用。 |
+| YHFlutterPlugin | 主要用于对 YHFlutterAdapter 提供相关的桥接方法与插件的功能扩增。 |
 
-```
-.
-|__YHFlutterAdapter(负责 Flutter 功能与原生端代码的隔离解耦，并提供一定的插件注册功能，该模块内的功能应逐渐下沉为通用功能，可供多个业务线直接复用。)
-|__YHFlutterSDK(存放 Flutter 项目编译后生成的产物，各个业务线可针对于自己的 Flutter 项目需求来生成对应的独立产物，与 YHFlutterAdapter 和 YHFlutterPlugin 组装使用。)
-|__YHFlutterPlugin(主要用于对 YHFlutterAdapter 提供相关的桥接方法与插件的功能扩增。)
-|__Demo(使用样例。)
-```
 -----
 
 ### 集成方式
@@ -59,11 +56,9 @@ UIViewController *flutterViewController = [[YHFlutterModule service] flutterView
 
 #### 4. Plugin & Channel 注册的三种方式
 
-1. 将 ``YHFlutterModule`` 注册进项目已有的组件化服务内，并调用 ``YHFlutterServiceProtocol`` 的相关方法进行注册
+1. [推荐] 将 ``YHFlutterModule`` 注册进项目已有的组件化服务内，并调用 ``YHFlutterServiceProtocol`` 的相关方法进行注册
 2. ``[[YHFlutterModule service] registMethodChannelHandler:self.class];``
 3. `[YHFlutterRegistrant registMethodChannelHandler:self.class];`
-
-推荐使用 1
 
 #### 5. YHFlutterSDK 内产物更新方式
 ##### 自动更新【建议】

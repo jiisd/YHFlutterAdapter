@@ -60,10 +60,8 @@ UIViewController *flutterViewController = [[YHFlutterModule service] flutterView
 #### 4、Plugin & Channel 注册方式
 
 1. 使用 `[YHFlutterModule service]` 注册 ``[[YHFlutterModule service] registMethodChannelHandler:self.class];``
-
 2. 使用 ``YHFlutterRegistrant`` 注册``[YHFlutterRegistrant registMethodChannelHandler:self.class];``
-
-3.【可选但推荐】将 ``YHFlutterModule`` 注册进项目内已有的组件化服务内并调用 ``YHFlutterServiceProtocol`` 的相关方法进行注册
+3. (可选但推荐) 将 ``YHFlutterModule`` 注册进项目内已有的组件化服务内并调用 ``YHFlutterServiceProtocol`` 的相关方法进行注册
 
 #### 5. YHFlutterSDK 内产物更新方式
 1. 手动更新：

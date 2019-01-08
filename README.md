@@ -21,13 +21,13 @@
 -----
 
 ### 集成方式
-```
-Podfile 内添加
 
-pod 'YHFlutterAdapter'
-pod 'YHFlutterSDK'
-pod 'YHFlutterPlugin'
+`Podfile` 内添加
 
+```ruby
+pod 'YHFlutterAdapter' # :podspec => 'xxx' or :path => 'xxx'
+pod 'YHFlutterSDK'     # :podspec => 'xxx' or :path => 'xxx'
+pod 'YHFlutterPlugin'  # :podspec => 'xxx' or :path => 'xxx'
 ```
 具体集成细节，podspec指向等可参照项目内 Demo 。
 
@@ -36,7 +36,7 @@ pod 'YHFlutterPlugin'
 ### 使用方式
 #### 1. 添加引用
 
-```
+```objc
 #import <YHFlutterAdapter/YHFlutterModule.h>
 ```
 

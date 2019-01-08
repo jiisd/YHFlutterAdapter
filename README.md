@@ -66,11 +66,15 @@ UIViewController *flutterViewController = [[YHFlutterModule service] flutterView
 推荐使用 1
 
 #### 5. YHFlutterSDK 内产物更新方式
-1. 自动更新【建议】：编写对应的脚本实现 编译-转移产物-更新到远端 Pod 的操作，同时将 ``YHFlutterPlugin`` 中需要添加的依赖类自动更新并注册进 ``YHFlutterAdapter `
-2. 手动更新：
- 1. Flutter 工程目录下 ``./.ios/`` 内对应工程的 BundleId 以及证书更换为当前电脑中任何一个可用的，保证通过编译
- 2. Flutter 工程目录下使用 ``flutter build ios`` or ``flutter build ios --debug`` 命令生成对应的 ``release`` or ``debug`` 版本的产物
- 3. cd 到 `./.ios/Flutter/`目录下将对应的三个产物更换到 YHFlutterSDK 内
+##### 自动更新【建议】
+
+编写对应的脚本实现 编译-转移产物-更新到远端 Pod 的操作，同时将 ``YHFlutterPlugin`` 中需要添加的依赖类自动更新并注册进 `YHFlutterAdapter `
+
+##### 手动更新：
+
+1. Flutter 工程目录下 ``./.ios/`` 内对应工程的 BundleId 以及证书更换为当前电脑中任何一个可用的，保证通过编译
+2. Flutter 工程目录下使用 ``flutter build ios`` or ``flutter build ios --debug`` 命令生成对应的 ``release`` or ``debug`` 版本的产物
+3. cd 到 `./.ios/Flutter/`目录下将对应的三个产物更换到 YHFlutterSDK 内
 
 -----
 ### 示例图

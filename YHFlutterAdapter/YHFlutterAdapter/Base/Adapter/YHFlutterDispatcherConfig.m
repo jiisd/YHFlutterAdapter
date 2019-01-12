@@ -1,5 +1,5 @@
 //
-//  YHFlutterManagerConfig.m
+//  YHFlutterDispatcherConfig.m
 //  YHFlutterAdapter
 //
 //  Created by yahengzheng on 2019/1/6.

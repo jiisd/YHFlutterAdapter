@@ -54,7 +54,7 @@ static __weak NSObject<FlutterPluginRegistry>                           *_plugin
 
 #pragma mark - YHFlutterRegistrantProtocol
 + (void)registMethodChannelHandler:(Class<YHFlutterMethodChannelCall>)handler {
-    NSString *channelName = [handler channelName];
+    NSString *channelName = [handler methodChannelName];
     if (!channelName.length) {
         return;
     }
@@ -86,7 +86,7 @@ static __weak NSObject<FlutterPluginRegistry>                           *_plugin
 }
 
 + (void)registEventChannelHandler:(Class<YHFlutterEventChannelCall>)handler {
-    NSString *channelName = [handler channelName];
+    NSString *channelName = [handler eventChannelName];
     if (!channelName.length) {
         return;
     }
@@ -119,7 +119,7 @@ static __weak NSObject<FlutterPluginRegistry>                           *_plugin
 }
 
 + (void)registBasicMessageChannelHandler:(Class<YHFlutterBasicMessageChannelCall>)handler {
-    NSString *channelName = [handler channelName];
+    NSString *channelName = [handler basicMessageChannelName];
     if (!channelName.length) {
         return;
     }

@@ -1,5 +1,5 @@
 //
-//  YHFlutterManager.m
+//  YHFlutterAdapter.m
 //  YHFlutterAdapter
 //
 //  Created by yahengzheng on 2019/1/6.
@@ -15,17 +15,16 @@
 /// 在该问题解决之前我们先只使用同一个 ViewController 来承载不同的业务界面；
 /// 在 Flutter 界面不再显示的时候需要考虑是否需要卸载掉当前界面的 Widget，进一步降低其内存占用；
 static YHFlutterViewController                  *_flutterViewController;
-static NSString                                 *_pageKey;
 
 @implementation YHFlutterAdapter
 
 #pragma mark - public method
 + (NSString *)currentPageKey {
-    return _pageKey ? _pageKey : @"";
+    return _flutterViewController.pageName ? _flutterViewController.pageName : @"";
 }
 
-+ (UIViewController *)currentFlutterViewController {
-    return _flutterViewController;
++ (NSDictionary *)currentProperties {
+    return _flutterViewController.properties ? _flutterViewController.properties : @{};
 }
 
 #pragma mark - YHFlutterServiceProtocol
@@ -37,11 +36,14 @@ static NSString                                 *_pageKey;
         [YHFlutterMessageDispatcher setPluginRegistry:_flutterViewController];
     });
     
-    _pageKey = key;
     _flutterViewController.pageName = key;
     _flutterViewController.properties = properties;
     [_flutterViewController syncPageArgumentToFlutter];
     
+    return _flutterViewController;
+}
+
++ (UIViewController *)currentFlutterViewController {
     return _flutterViewController;
 }
 

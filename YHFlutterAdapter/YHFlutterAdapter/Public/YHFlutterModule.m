@@ -9,7 +9,6 @@
 #import "YHFlutterModule.h"
 #import "YHFlutterAdapter.h"
 #import "YHGeneratedPluginRegistrant.h"
-#import "YHFlutterChannelRegistrant.h"
 
 @implementation YHFlutterModule
 
@@ -18,7 +17,6 @@
     
     /// e.g.:
     //    [YHGeneratedPluginRegistrant registPlugin];
-    [YHFlutterChannelRegistrant registChannel];
 }
 
 + (Class<YHFlutterServiceProtocol>)service {

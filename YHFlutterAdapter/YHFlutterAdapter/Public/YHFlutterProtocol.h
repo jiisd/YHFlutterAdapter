@@ -10,11 +10,11 @@
 #import <Flutter/Flutter.h>
 #import "YHFlutterDefine.h"
 
+@protocol YHFlutterServiceProtocol;
 @protocol YHFlutterRegistrantProtocol;
 @protocol YHFlutterMethodChannelCall;
 @protocol YHFlutterEventChannelCall;
 @protocol YHFlutterBasicMessageChannelCall;
-@protocol YHFlutterPluginCallDelegate;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -28,10 +28,17 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param  key         加载 Flutter 界面对应的标识
  *  @param  properties  加载 Flutter 界面需要的部分业务参数
  *
- *  @return  对应的 Flutter 界面
+ *  @return  对应的 Flutter 控制器
  */
 + (UIViewController *)flutterViewControllerForKey:(NSString * _Nonnull)key
                                        properties:(NSDictionary * _Nullable)properties;
+
+/**
+ *  @brief  获取当前的 Flutter 控制器
+ *
+ *  @return  当前的 Flutter 控制器
+ */
++ (UIViewController *)currentFlutterViewController;
 
 @end
 
@@ -108,7 +115,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @return 与 Flutter 通信的 FlutterMethodChannel 对应的唯一标识
  */
-+ (NSString *)channelName;
++ (NSString *)methodChannelName;
 
 @optional
 /**
@@ -141,7 +148,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @return  与 Flutter 通信的 FlutterEventChannel 对应的唯一标识
  */
-+ (NSString *)channelName;
++ (NSString *)eventChannelName;
 
 /**
  *  @brief channelName 中返回的标识被 Flutter 端注册订阅后，会触发此方法
@@ -175,7 +182,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @return 与 Flutter 通信的 FlutterBasicMessageChannel 对应的唯一标识
  */
-+ (NSString *)channelName;
++ (NSString *)basicMessageChannelName;
 
 @optional
 /**

@@ -1,12 +1,12 @@
 //
-//  ViewController.m
+//  YHFlutterLogChannel.m
 //  YHFlutterAdapter
 //
 //  Created by yahengzheng on 2019/1/6.
 //  Copyright © 2019 yahengzheng. All rights reserved.
 //
 
-#import "YHFlutterLog.h"
+#import "YHFlutterLogChannel.h"
 #import "YHFlutterRegistrant.h"
 //#import <YHLog.h>
 
@@ -20,13 +20,13 @@ typedef NS_ENUM(NSInteger, YHFlutterLogLevel) {
 static NSString * const kYahengBaseFlutterBridgeChannelName = @"yaheng.base.flutter.bridge";
 static NSString * const kLogCallMethod = @"log";
 
-@implementation YHFlutterLog
+@implementation YHFlutterLogChannel
 
 + (void)load {
     [YHFlutterRegistrant registMethodChannelHandler:self.class];
 }
 
-+ (NSString *)channelName {
++ (NSString *)methodChannelName {
     return kYahengBaseFlutterBridgeChannelName;
 }
 

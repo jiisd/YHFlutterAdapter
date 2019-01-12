@@ -14,7 +14,7 @@
 		DA1E524F21E10DA5002E1C37 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA1E524E21E10DA5002E1C37 /* Assets.xcassets */; };
 		DA1E525221E10DA5002E1C37 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA1E525021E10DA5002E1C37 /* LaunchScreen.storyboard */; };
 		DA1E525521E10DA5002E1C37 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DA1E525421E10DA5002E1C37 /* main.m */; };
-		DA1E526121E1F969002E1C37 /* YHFlutterFeatureBridgeTest.m in Sources */ = {isa = PBXBuildFile; fileRef = DA1E526021E1F969002E1C37 /* YHFlutterFeatureBridgeTest.m */; };
+		DA1E526121E1F969002E1C37 /* YHFlutterFeatureChannel.m in Sources */ = {isa = PBXBuildFile; fileRef = DA1E526021E1F969002E1C37 /* YHFlutterFeatureChannel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,8 +31,8 @@
 		DA1E525121E10DA5002E1C37 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DA1E525321E10DA5002E1C37 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DA1E525421E10DA5002E1C37 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		DA1E525F21E1F969002E1C37 /* YHFlutterFeatureBridgeTest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YHFlutterFeatureBridgeTest.h; sourceTree = "<group>"; };
-		DA1E526021E1F969002E1C37 /* YHFlutterFeatureBridgeTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YHFlutterFeatureBridgeTest.m; sourceTree = "<group>"; };
+		DA1E525F21E1F969002E1C37 /* YHFlutterFeatureChannel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YHFlutterFeatureChannel.h; sourceTree = "<group>"; };
+		DA1E526021E1F969002E1C37 /* YHFlutterFeatureChannel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YHFlutterFeatureChannel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,7 +85,7 @@
 		DA1E524421E10DA4002E1C37 /* YHFlutterDemo */ = {
 			isa = PBXGroup;
 			children = (
-				DA1E525E21E1F8C8002E1C37 /* FlutterFeatureBridge */,
+				DA1E525E21E1F8C8002E1C37 /* FlutterFeatureChannel */,
 				DA1E524521E10DA4002E1C37 /* AppDelegate.h */,
 				DA1E524621E10DA4002E1C37 /* AppDelegate.m */,
 				DA1E524821E10DA4002E1C37 /* ViewController.h */,
@@ -99,13 +99,13 @@
 			path = YHFlutterDemo;
 			sourceTree = "<group>";
 		};
-		DA1E525E21E1F8C8002E1C37 /* FlutterFeatureBridge */ = {
+		DA1E525E21E1F8C8002E1C37 /* FlutterFeatureChannel */ = {
 			isa = PBXGroup;
 			children = (
-				DA1E525F21E1F969002E1C37 /* YHFlutterFeatureBridgeTest.h */,
-				DA1E526021E1F969002E1C37 /* YHFlutterFeatureBridgeTest.m */,
+				DA1E525F21E1F969002E1C37 /* YHFlutterFeatureChannel.h */,
+				DA1E526021E1F969002E1C37 /* YHFlutterFeatureChannel.m */,
 			);
-			path = FlutterFeatureBridge;
+			path = FlutterFeatureChannel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -185,8 +185,8 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-YHFlutterDemo/Pods-YHFlutterDemo-frameworks.sh",
-				"${PODS_ROOT}/YHFlutterSDK/YHFlutterSDK/YHFlutterSDK/App.framework",
-				"${PODS_ROOT}/YHFlutterSDK/YHFlutterSDK/YHFlutterSDK/engine/Flutter.framework",
+				"${PODS_ROOT}/../../YHFlutterSDK/YHFlutterSDK/App.framework",
+				"${PODS_ROOT}/../../YHFlutterSDK/YHFlutterSDK/engine/Flutter.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -205,7 +205,7 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-YHFlutterDemo/Pods-YHFlutterDemo-resources.sh",
-				"${PODS_ROOT}/YHFlutterSDK/YHFlutterSDK/YHFlutterSDK/flutter_assets",
+				"${PODS_ROOT}/../../YHFlutterSDK/YHFlutterSDK/flutter_assets",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
@@ -244,7 +244,7 @@
 				DA1E524A21E10DA4002E1C37 /* ViewController.m in Sources */,
 				DA1E525521E10DA5002E1C37 /* main.m in Sources */,
 				DA1E524721E10DA4002E1C37 /* AppDelegate.m in Sources */,
-				DA1E526121E1F969002E1C37 /* YHFlutterFeatureBridgeTest.m in Sources */,
+				DA1E526121E1F969002E1C37 /* YHFlutterFeatureChannel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

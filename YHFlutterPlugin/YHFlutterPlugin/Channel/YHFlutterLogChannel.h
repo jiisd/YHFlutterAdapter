@@ -1,5 +1,5 @@
 //
-//  ViewController.m
+//  YHFlutterLogChannel.m
 //  YHFlutterAdapter
 //
 //  Created by yahengzheng on 2019/1/6.
@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface YHFlutterLog : NSObject
+@interface YHFlutterLogChannel : NSObject
 
 @end
 

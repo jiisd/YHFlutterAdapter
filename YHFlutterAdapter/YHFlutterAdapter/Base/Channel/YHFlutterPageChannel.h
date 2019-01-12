@@ -1,5 +1,5 @@
 //
-//  YHFlutterPageBridge.h
+//  YHFlutterPageChannel.h
 //  YHFlutterAdapter
 //
 //  Created by yahengzheng on 2019/1/6.
@@ -8,6 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-@interface YHFlutterPageBridge : NSObject
+@interface YHFlutterPageChannel : NSObject
 
 @end

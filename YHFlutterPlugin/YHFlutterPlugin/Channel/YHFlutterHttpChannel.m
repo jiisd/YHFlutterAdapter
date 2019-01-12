@@ -1,24 +1,24 @@
 //
-//  YHFlutterHttp.m
+//  YHFlutterHttpChannel.m
 //  YHFlutterAdapter
 //
 //  Created by yahengzheng on 2019/1/6.
 //  Copyright © 2019 yahengzheng. All rights reserved.
 //
 
-#import "YHFlutterHttp.h"
+#import "YHFlutterHttpChannel.h"
 #import "YHFlutterRegistrant.h"
 
 static NSString * const kYahengBaseFlutterBridgeChannelName = @"yaheng.base.flutter.bridge";
 static NSString * const kYhHttpGetCallMethod                = @"yhHttpGet";
 
-@implementation YHFlutterHttp
+@implementation YHFlutterHttpChannel
 
 + (void)load {
     [YHFlutterRegistrant registMethodChannelHandler:self.class];
 }
 
-+ (NSString *)channelName {
++ (NSString *)methodChannelName {
     return kYahengBaseFlutterBridgeChannelName;
 }
 

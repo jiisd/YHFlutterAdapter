@@ -1,6 +1,6 @@
 //
-//  YHFlutterHttp.h
-//  YHFlutterAdapter
+//  YHFlutterFeatureChannel.h
+//  YHFlutterDemo
 //
 //  Created by yahengzheng on 2019/1/6.
 //  Copyright © 2019 yahengzheng. All rights reserved.
@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface YHFlutterHttp : NSObject
+@interface YHFlutterFeatureChannel : NSObject
 
 @end
 

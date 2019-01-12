@@ -1,5 +1,5 @@
 //
-//  YHFlutterManager.h
+//  YHFlutterAdapter.h
 //  YHFlutterAdapter
 //
 //  Created by yahengzheng on 2019/1/6.
@@ -16,7 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (NSString *)currentPageKey;
 
-+ (UIViewController *)currentFlutterViewController;
++ (NSDictionary *)currentProperties;
 
 @end
 

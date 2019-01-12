@@ -45,7 +45,6 @@
     }
     
     [self sendPageState:kFlutterPageWillAppear];
-    
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -77,9 +76,11 @@
 }
 
 - (NSDictionary *)pageArguments {
-    NSMutableDictionary *dictM = [[NSMutableDictionary alloc] initWithCapacity:2];
-    dictM[@"pageIdentifier"] = self.pageIdentifier;
-    dictM[@"pageName"]       = self.pageName;
+    NSMutableDictionary *dictM = [[NSMutableDictionary alloc] initWithCapacity:3];
+    dictM[@"page_identifier"] = self.pageIdentifier;
+    dictM[@"page_name"]       = self.pageName;
+    dictM[@"properties"]      = self.properties;
+    
     return [dictM copy];
 }
 

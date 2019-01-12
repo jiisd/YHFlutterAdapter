@@ -1,12 +1,12 @@
 //
-//  YHFlutterPageBridge.m
+//  YHFlutterPageChannel.m
 //  YHFlutterAdapter
 //
 //  Created by yahengzheng on 2019/1/6.
 //  Copyright © 2019 yahengzheng. All rights reserved.
 //
 
-#import "YHFlutterPageBridge.h"
+#import "YHFlutterPageChannel.h"
 #import "YHFlutterRegistrant.h"
 #import "YHFlutterAdapter.h"
 #import "YHFlutterChannelKey.h"
@@ -14,23 +14,20 @@
 static NSString * const kCloseCurrentPageCallMethod = @"closeCurrentPage";
 static NSString * const kGetPageParamsCallMethod    = @"getPageParams";
 
-@implementation YHFlutterPageBridge
+@implementation YHFlutterPageChannel
 
-/**
- * 已经在 YHFlutterChannelRegistrant 内注册
- */
-//+ (void)load {
-//    [YHFlutterRegistrant registMethodChannelHandler:self.class];
-//}
++ (void)load {
+    [YHFlutterRegistrant registMethodChannelHandler:self.class];
+}
 
-+ (NSString *)channelName {
++ (NSString *)methodChannelName {
     return kYahengBaseFlutterBridgeChannelName;
 }
 
-//+ (NSArray<NSString *> *)supportedMethodName {
-//    return @[kCloseCurrentPageCallMethod,
-//             kGetPageParamsCallMethod];
-//}
++ (NSArray<NSString *> *)supportedMethodName {
+    return @[kCloseCurrentPageCallMethod,
+             kGetPageParamsCallMethod];
+}
 
 + (void)handleMethodCall:(FlutterMethodCall*)call result:(FlutterResult)result {
     if ([call.method isEqualToString:kCloseCurrentPageCallMethod]) {
@@ -54,9 +51,13 @@ static NSString * const kGetPageParamsCallMethod    = @"getPageParams";
 }
 
 + (void)getPageParamsWithMethodCall:(FlutterMethodCall*)call result:(FlutterResult)result {
-    NSString *pageKey = [YHFlutterAdapter currentPageKey];
+    NSString     *pageKey = [YHFlutterAdapter currentPageKey];
+    NSDictionary *properties = [YHFlutterAdapter currentProperties];
     if (result) {
-        result(@{ @"page_key": pageKey});
+        result(@{
+                 @"page_key":   pageKey,
+                 @"properties": properties
+                 });
     }
 }
 

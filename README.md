@@ -8,15 +8,25 @@
  
 
 ## 结构图
+#### 层级
 
 ![](https://raw.githubusercontent.com/jiisd/YHFlutterAdapter/master/diagram.png)
+
+
+#### 依赖关系
+![](https://raw.githubusercontent.com/jiisd/YHFlutterAdapter/master/diagram02.png)
 
  
 | 模块 | 描述 |
 | --- | --- |
-| YHFlutterAdapter | 负责 Flutter 功能与原生端代码的隔离解耦，并提供一定的插件注册功能，该模块内的功能应逐渐下沉为通用功能，可供多个业务线直接复用。 |
+| YHFlutterAdapter | 负责 Flutter 功能与原生端代码的隔离解耦，并提供一定的插件注册功能，该模块对 YHFlutterSDK 以及 YHFlutterPlugin 无依赖关系，并且其中的功能应逐渐下沉为通用功能，可供多个业务线直接复用。 |
 | YHFlutterSDK | 存放 Flutter 项目编译后生成的产物，各个业务线可针对于自己的 Flutter 项目需求来生成对应的独立产物，与 YHFlutterAdapter 和 YHFlutterPlugin 组装使用。 |
-| YHFlutterPlugin | 主要用于对 YHFlutterAdapter 提供相关的桥接方法与插件的功能扩增。 |
+| YHFlutterPlugin | 主要配合 YHFlutterAdapter 实现部分桥接方法与插件的功能。可创建多个，一些用于提供通用基础桥接功能，另一些专门用于具体特定业务实现逻辑，上层项目选择性的引入即可。 |
+
+#### 多业务线复用
+
+![](https://raw.githubusercontent.com/jiisd/YHFlutterAdapter/master/diagram03.png)
+##### YHFlutterAdapter 、YHFlutterSDK 、YHFlutterPlugin 三者可以按照自身业务需要选择性的随意组合使用。
 
 -----
 
@@ -40,7 +50,7 @@ pod 'YHFlutterPlugin'  # :podspec => 'xxx' or :path => 'xxx'
 #import <YHFlutterAdapter/YHFlutterModule.h>
 ```
 
-### 2. 加载 Flutter 界面
+### 2. 加载 Flutter 界面的两种方式
 
 1. 在项目内直接显示调用
 ```objc
@@ -49,7 +59,7 @@ UIViewController *flutterViewController = [[YHFlutterModule service] flutterView
 ```
 2. 【推荐】将 ``YHFlutterModule`` 注册进项目内已有的组件化服务内并调用 ``YHFlutterServiceProtocol`` 的相关方法使用
 
-### 3. 扩增与 Flutter 交互的桥接方法，或者添加新的 Plugin的两种方式
+### 3. 扩增与 Flutter 交互的桥接方法，或者添加新的 Plugin 的两种方式
 
 1. 可参照 Demo 内的 ``YHFlutterFeatureBridgeTest``，具体的业务使用方在上层项目内可自行注册监听并处理自己需要的消息；
 2. 也可参照 ``YHFlutterPlugin`` 编写新的 pod 仓库组件独立实现；
@@ -75,6 +85,19 @@ UIViewController *flutterViewController = [[YHFlutterModule service] flutterView
 ## 示例图
 
 ![](https://raw.githubusercontent.com/jiisd/YHFlutterAdapter/master/demoGif.gif)
+
+
+| 功能 | 实现类 | channelName |
+|:---:|:---:|:---:|
+| `Read feature description` | `YHFlutterFeatureChannel.m`<br>业务层内实现 | `yaheng.feature.flutter.bridge`|
+| `Write log file` |  `YHFlutterLogChannel.m`<br> YHFlutterPlugin 内实现 | `yaheng.base.flutter.bridge`|
+|  `Client HTTP request` |  `YHFlutterHttpChannel.m`<br>YHFlutterPlugin 内实现 | `yaheng.base.flutter.bridge`|
+|  `Close` |  `YHFlutterPageChannel.m`<br> YHFlutterAdapter 内实现 | `yaheng.base.flutter.bridge`|
+
+-----
+## 部分代码使用示例
+### 只要在具体类内部实现相应方法即可，不需要外部任何调用。
+![](https://raw.githubusercontent.com/jiisd/YHFlutterAdapter/master/codeUsage.png)
 
 -----
 ## LICENSE

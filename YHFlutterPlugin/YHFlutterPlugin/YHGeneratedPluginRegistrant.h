@@ -13,7 +13,7 @@
  * 移植进来之后建议不要更改 Plugin 对应类的代码，建议不要更改其源码，建议不要更改其源码，直接在当前类的 +registPlugin 或者 +load 内引用注册即可
  */
 
-#import <Flutter/Flutter.h>
+#import "Flutter.h"
 
 NS_ASSUME_NONNULL_BEGIN
 

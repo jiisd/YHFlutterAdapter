@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = 'YHFlutterAdapter'
-  s.version      = '0.0.2'
+  s.version      = '0.0.3'
   s.summary      = 'YHFlutterAdapter'
   s.description  = <<-DESC
                     三行代码组件化集成 Flutter！可用于已有 iOS 项目，对原工程无侵入，无需更改原项目配置，集成后可直接以组件形式开发 Flutter 业务。
@@ -16,5 +16,7 @@ Pod::Spec.new do |s|
   s.requires_arc = true
 
   s.source_files = 'YHFlutterAdapter/**/*.{h,m}'
-  s.public_header_files = 'YHFlutterAdapter/Public/*.h'
+  s.public_header_files =
+        'YHFlutterAdapter/Public/*.h',
+        'YHFlutterAdapter/FlutterStableFrameworkHeaders/Headers/*.h'
 end

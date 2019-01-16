@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <Flutter/Flutter.h>
+#import "Flutter.h"
 #import "YHFlutterDefine.h"
 
 @protocol YHFlutterServiceProtocol;

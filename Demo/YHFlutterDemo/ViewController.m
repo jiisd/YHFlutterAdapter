@@ -18,7 +18,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    // 在对应的项目内选择合适的时间点掉用该方法，可在方法内提前注册部分服务
+    // 在对应的项目内选择合适的时机调用该方法，可在方法内提前注册部分服务
     [YHFlutterModule setup];
     
     UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 320, 80)];
@@ -34,12 +34,13 @@
 }
 
 - (void)openFlutterPage {
-    // 项目中若有组件化的方案，
-    // 可在合适的时机内将 YHFlutterModule 注册进对应的组件服务内，来调用 YHFlutterServiceProtocol 对应的方法
-    // 就不需要直接显示的调用 YHFlutterModule 来加载 Flutter 界面了
+    // 加载 Flutter 界面的两种方式
+ 
+    // 1. 直接显示的调用 YHFlutterModule 加载 Flutter 界面(如下)
     UIViewController *flutterViewController = [[YHFlutterModule service] flutterViewControllerForKey:@"yh_demo_page" properties:nil];
     [self presentViewController:flutterViewController animated:YES completion:nil];
     
+    // 2. 项目中若已有组件化的方案在使用，可在合适的时机将 YHFlutterModule 注册进相关的组件服务内，通过调用 YHFlutterServiceProtocol 的相关方法加载 Flutter 界面
 }
 
 @end

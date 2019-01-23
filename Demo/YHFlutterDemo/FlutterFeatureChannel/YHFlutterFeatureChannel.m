@@ -19,7 +19,7 @@ static NSString * const kFeatureInfoCallMethod = @"featureInfo";
 /**
  *  @brief  可通过 +load 自动注册
  *          也可通过将 YHFlutterModule 注册进现有项目中的组件化服务之后
- *          调用 YHFlutterServiceProtocol 相关方法来注册
+ *          调用 YHFlutterServiceProtocol 相关方法进行注册
  */
 + (void)load {
     [YHFlutterRegistrant registMethodChannelHandler:self.class];

@@ -86,7 +86,7 @@ UIViewController *flutterViewController = [[YHFlutterModule service] flutterView
 
 
 -----
-## 示例图
+## 示例图（请使用真机运行该 Demo）
 
 ![](https://raw.githubusercontent.com/jiisd/YHFlutterAdapter/master/demoGif.gif)
 

@@ -14,6 +14,5 @@ Pod::Spec.new do |s|
   s.source       = { :git => 'git@github.com:jiisd/YHFlutterAdapter.git',:tag => s.version }
   s.requires_arc = true
 
-  s.resources = 'YHFlutterSDK/**/flutter_assets'
   s.vendored_frameworks = 'YHFlutterSDK/**/*.{framework}'
 end
